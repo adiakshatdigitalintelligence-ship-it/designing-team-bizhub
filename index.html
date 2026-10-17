@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aryan's Bizhub — Elite Design & Creative Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configure Tailwind safely after loading script
+        if (typeof tailwind !== 'undefined') {
+            tailwind.config = {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        colors: {
+                            pink: {
+                                400: '#f472b6',
+                                500: '#ec4899',
+                                600: '#db2777',
+                                700: '#be185d',
+                                900: '#831843',
+                                glow: '#ff2d88'
+                            },
+                            dark: {
+                                bg: '#09080e',
+                                card: '#120f1a',
+                                border: '#2a1a2e',
+                                elevated: '#1a1325'
+                            }
+                        },
+                        fontFamily: {
+                            sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                            display: ['Syne', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        },
+                        animation: {
+                            'float': 'float 6s ease-in-out infinite',
+                            'pulse-pink': 'pulsePink 3.5s ease-in-out infinite',
+                            'spin-slow': 'spin 18s linear infinite',
+                        },
+                        keyframes: {
+                            float: {
+                                '0%, 100%': { transform: 'translateY(0px)' },
+                                '50%': { transform: 'translateY(-12px)' },
+                            },
+                            pulsePink: {
+                                '0%, 100%': { opacity: '0.35', transform: 'scale(1)' },
+                                '50%': { opacity: '0.75', transform: 'scale(1.08)' },
+                            }
+                        }
+                    }
+                }
+            };
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* Universal Cross-Browser Compatibility Resets */
+        *, *::before, *::after {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            /* iOS Momentum Scrolling */
+            -webkit-overflow-scrolling: touch;
+            /* Windows Text Rendering Smoothness */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Safe Area Padding for iOS Devices (iPhones with notch/dynamic island) */
+        body {
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+
+        /* Cross-Browser Scrollbar Standard (Firefox & WebKit/Blink Edge/Chrome/Safari) */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #be185d #09080e;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09080e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #be185d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ec4899;
+        }
+        
+        /* Glassmorphism fallbacks for older web views / unsupported browser engines */
+        .pink-glass {
+            background: rgba(18, 15, 26, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(236, 72, 153, 0.15);
+        }
+
+        .pink-glass-card {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.05) 0%, rgba(18, 15, 26, 0.85) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(236, 72, 153, 0.18);
+        }
+
+        .pink-glass-card:hover {
+            border-color: rgba(236, 72, 153, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(236, 72, 153, 0.25);
+        }
+
+        .pink-gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #f472b6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pink-gradient-bg {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 50%, #9d174d 100%);
+        }
+
+        .pink-glow-box {
+            box-shadow: 0 0 35px -5px rgba(236, 72, 153, 0.3);
+        }
+
+        .text-shadow-pink {
+            text-shadow: 0 0 20px rgba(236, 72, 153, 0.6);
+        }
+
+        /* Prevent auto-zoom on iOS inputs */
+        input, select, textarea, button {
+            font-size: 16px;
+        }
+        @media (min-width: 640px) {
+            input, select, textarea, button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-gray-100 font-sans selection:bg-pink-500 selection:text-white antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3 sm:py-5 bg-[#09080e] border-b border-pink-500/20 shadow-xl" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2.5 sm:gap-3 group">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl pink-gradient-bg flex items-center justify-center text-white p-1.5 shadow-lg shadow-pink-500/30 group-hover:scale-105 transition-transform">
+                    <svg class="w-full h-full text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.42 15.65c-1.12.35-2.31.35-3.43 0-.75-.24-1.29-.93-1.29-1.72 0-.32.09-.64.26-.92.83-1.39 2.52-2.12 4.12-1.76 1.13.26 2.05 1.13 2.38 2.25.19.64.04 1.34-.37 1.86-.33.42-.81.71-1.35.89-.2.07-.4.12-.62.14zM16.5 10c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm-9 0C6.67 10 6 9.33 6 8.5S6.67 7 7.5 7s1.5.67 1.5 1.5S8.33 10 7.5 10z"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-base sm:text-lg tracking-wider text-white flex items-center gap-1">
+                        ARYAN'S <span class="text-pink-500">BIZHUB</span>
+                    </span>
+                    <span class="text-[9px] sm:text-[10px] tracking-widest text-pink-400 font-semibold uppercase -mt-1">Design Studio</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs font-semibold uppercase tracking-widest text-gray-300 dark:text-gray-300">
+                <a href="#about" class="hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Vision</a>
+                <a href="#portfolio" class="hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Showcase</a>
+                <a href="#services" class="hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Services</a>
+                <a href="#team" class="hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Team</a>
+            </div>
+
+            <!-- Header Action CTA & Theme Toggle -->
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden sm:inline-flex px-5 py-2.5 rounded-full pink-gradient-bg text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-pink-500/30 hover:scale-105 transition-transform items-center justify-center">
+                    Start Project
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-xl pink-glass text-pink-500 dark:text-pink-400 flex items-center justify-center min-w-[40px] min-h-[40px]" aria-label="Toggle Navigation">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden fixed inset-x-0 top-[60px] sm:top-[73px] bg-[#09080e] border-b border-pink-500/20 p-6 flex flex-col space-y-3 text-center shadow-2xl max-h-[85vh] overflow-y-auto">
+            <a href="#about" class="py-2.5 text-sm uppercase tracking-widest text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400">Vision</a>
+            <a href="#portfolio" class="py-2.5 text-sm uppercase tracking-widest text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400">Showcase</a>
+            <a href="#services" class="py-2.5 text-sm uppercase tracking-widest text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400">Services</a>
+            <a href="#team" class="py-2.5 text-sm uppercase tracking-widest text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400">Team</a>
+            <a href="#contact" class="py-3 rounded-full pink-gradient-bg text-white text-xs font-bold uppercase tracking-wider">Start Project</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[100dvh] flex items-center justify-center pt-24 pb-16 sm:pt-28 sm:pb-20 overflow-hidden">
+        <!-- Ambient Background Glows -->
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[650px] h-[300px] sm:h-[650px] bg-pink-600/20 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none animate-pulse-pink"></div>
+        <div class="absolute top-20 right-10 w-48 sm:w-80 h-48 sm:h-80 bg-pink-900/30 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-60 sm:w-96 h-60 sm:h-96 bg-purple-900/20 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center relative z-10">
+            <!-- Studio Badge -->
+            <div class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full pink-glass border border-pink-500/30 text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-pink-300 mb-6 sm:mb-8 animate-float">
+                <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
+                <span>The Creative Engine of Aryan's Bizhub</span>
+            </div>
+
+            <!-- Hero Headline -->
+            <h1 class="font-display text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6 sm:mb-8 leading-[1.15] sm:leading-[1.08]">
+                We Craft <span class="pink-gradient-text text-shadow-pink">Audacious</span> Digital Aesthetics & Brands.
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-sm sm:text-lg md:text-xl text-gray-300 font-light mb-8 sm:mb-10 leading-relaxed px-2">
+                The official design powerhouse behind Aryan's Bizhub. We convert complex enterprise visions into seductive design systems, high-converting interfaces, and iconic visual identities.
+            </p>
+
+            <!-- Hero Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 px-4 sm:px-0">
+                <a href="#portfolio" class="w-full sm:w-auto px-8 sm:px-9 py-3.5 sm:py-4 rounded-full pink-gradient-bg text-white font-bold text-xs uppercase tracking-widest shadow-xl shadow-pink-500/30 hover:shadow-pink-500/50 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 min-h-[48px]">
+                    <span>Explore Selected Works</span>
+                    <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 sm:px-9 py-3.5 sm:py-4 rounded-full pink-glass border border-pink-500/30 hover:border-pink-500 font-bold text-xs uppercase tracking-widest text-pink-300 hover:text-white transition-all flex items-center justify-center gap-2 min-h-[48px]">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-pink-400"></i>
+                    <span>Start Project</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 sm:py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                <div class="relative">
+                    <div class="w-full h-72 sm:h-96 lg:h-[450px] rounded-2xl sm:rounded-3xl overflow-hidden pink-glass border border-pink-500/20 relative group">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80" alt="Aryan's Bizhub Design Workspace" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/40 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-4 sm:p-6 pink-glass rounded-xl sm:rounded-2xl border border-pink-500/30">
+                            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-pink-400">Bizhub Creative Doctrine</span>
+                            <p class="text-xs sm:text-sm text-gray-200 mt-1 font-medium">"Design isn't just decoration here; it's the high-octane growth engine of every enterprise under Aryan's umbrella."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4 sm:space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-pink-400">Our Vision</span>
+                    <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+                        Merging Seductive Aesthetics with Business Precision
+                    </h2>
+                    <p class="text-gray-300 leading-relaxed font-light text-sm sm:text-base">
+                        At Aryan's Bizhub, our dedicated design unit serves as an epicenter for visual innovation. We exist to bridge the gap between abstract corporate strategy and unforgettable human visual experiences.
+                    </p>
+
+                    <div class="space-y-3 sm:space-y-4 pt-2">
+                        <div class="flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl pink-glass-card">
+                            <div class="p-2 sm:p-2.5 rounded-lg pink-gradient-bg text-white mt-1 shrink-0">
+                                <i data-lucide="layers" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm sm:text-base">Systematic Scalability</h3>
+                                <p class="text-xs text-gray-400 mt-0.5">We engineer atomic design systems that allow companies to scale digital products seamlessly.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl pink-glass-card">
+                            <div class="p-2 sm:p-2.5 rounded-lg pink-gradient-bg text-white mt-1 shrink-0">
+                                <i data-lucide="wand-2" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm sm:text-base">Emotionally Charged UI</h3>
+                                <p class="text-xs text-gray-400 mt-0.5">Dark, vibrant, and interactive interfaces that retain users and convert impressions into action.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 sm:py-24 relative bg-dark-elevated/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-pink-400">Curated Showcase</span>
+                    <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-2">Signature Masterpieces</h2>
+                </div>
+
+                <!-- Category Filters - Touch Friendly -->
+                <div id="portfolioFilters" class="flex flex-wrap gap-2 mt-4 md:mt-0 overflow-x-auto pb-2 sm:pb-0">
+                    <button data-filter="all" class="filter-btn px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all pink-gradient-bg text-white shadow-lg shadow-pink-500/20 min-h-[38px]">All Works</button>
+                    <button data-filter="ui" class="filter-btn px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all pink-glass text-gray-300 hover:text-pink-400 min-h-[38px]">UI/UX Apps</button>
+                    <button data-filter="brand" class="filter-btn px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all pink-glass text-gray-300 hover:text-pink-400 min-h-[38px]">Branding</button>
+                    <button data-filter="3d" class="filter-btn px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all pink-glass text-gray-300 hover:text-pink-400 min-h-[38px]">3D/Motion</button>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="portfolioGrid">
+                <!-- Project 1 -->
+                <div class="portfolio-item group pink-glass-card rounded-2xl overflow-hidden cursor-pointer" data-category="ui" onclick="openModal('Bizhub Executive Suite', 'Comprehensive analytics platform for C-suite executive monitoring.', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80')">
+                    <div class="relative h-52 sm:h-64 overflow-hidden bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Bizhub Suite" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex items-end">
+                            <span class="text-xs font-bold uppercase tracking-wider text-pink-300 flex items-center gap-1">View Project Details <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+                        </div>
+                    </div>
+                    <div class="p-5 sm:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-pink-400 transition-colors">Bizhub Executive Suite</h3>
+                            <span class="text-[10px] px-2.5 py-1 rounded-full bg-pink-500/20 text-pink-300 font-bold uppercase">UI/UX</span>
+                        </div>
+                        <p class="text-xs text-gray-400 line-clamp-2">Real-time financial telemetry platform with dark glassmorphism layout tailored for enterprise executives.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item group pink-glass-card rounded-2xl overflow-hidden cursor-pointer" data-category="brand" onclick="openModal('NeonVibe Luxury Fashion', 'High-fashion brand identity and eco-lux packaging system.', 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1000&q=80')">
+                    <div class="relative h-52 sm:h-64 overflow-hidden bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80" alt="NeonVibe Brand" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex items-end">
+                            <span class="text-xs font-bold uppercase tracking-wider text-pink-300 flex items-center gap-1">View Project Details <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+                        </div>
+                    </div>
+                    <div class="p-5 sm:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-pink-400 transition-colors">NeonVibe Luxury</h3>
+                            <span class="text-[10px] px-2.5 py-1 rounded-full bg-pink-500/20 text-pink-300 font-bold uppercase">Branding</span>
+                        </div>
+                        <p class="text-xs text-gray-400 line-clamp-2">Minimalist visual identity and packaging system built for a modern dark aesthetic streetwear line.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item group pink-glass-card rounded-2xl overflow-hidden cursor-pointer" data-category="3d" onclick="openModal('Aura Motion WebGL', 'Generative 3D audio-reactive visuals for digital launches.', 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1000&q=80')">
+                    <div class="relative h-52 sm:h-64 overflow-hidden bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="Aura Motion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex items-end">
+                            <span class="text-xs font-bold uppercase tracking-wider text-pink-300 flex items-center gap-1">View Project Details <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+                        </div>
+                    </div>
+                    <div class="p-5 sm:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-pink-400 transition-colors">Aura Spatial Motion</h3>
+                            <span class="text-[10px] px-2.5 py-1 rounded-full bg-pink-500/20 text-pink-300 font-bold uppercase">3D / Motion</span>
+                        </div>
+                        <p class="text-xs text-gray-400 line-clamp-2">Interactive WebGL canvas artwork and promotional video graphics for product release teasers.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-item group pink-glass-card rounded-2xl overflow-hidden cursor-pointer" data-category="ui" onclick="openModal('CryptoVault Pro App', 'Sleek dark crypto wallet & token trading mobile dashboard.', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80')">
+                    <div class="relative h-52 sm:h-64 overflow-hidden bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="CryptoVault App" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex items-end">
+                            <span class="text-xs font-bold uppercase tracking-wider text-pink-300 flex items-center gap-1">View Project Details <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+                        </div>
+                    </div>
+                    <div class="p-5 sm:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-pink-400 transition-colors">CryptoVault Mobile</h3>
+                            <span class="text-[10px] px-2.5 py-1 rounded-full bg-pink-500/20 text-pink-300 font-bold uppercase">UI/UX</span>
+                        </div>
+                        <p class="text-xs text-gray-400 line-clamp-2">Mobile crypto trading application engineered for high-speed transactions with glowing dark mode cues.</p>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="portfolio-item group pink-glass-card rounded-2xl overflow-hidden cursor-pointer" data-category="brand" onclick="openModal('Hyperion AI Identity', 'Complete rebrand and design guidelines for artificial intelligence startup.', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80')">
+                    <div class="relative h-52 sm:h-64 overflow-hidden bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" alt="Hyperion AI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex items-end">
+                            <span class="text-xs font-bold uppercase tracking-wider text-pink-300 flex items-center gap-1">View Project Details <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+                        </div>
+                    </div>
+                    <div class="p-5 sm:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-pink-400 transition-colors">Hyperion AI</h3>
+                            <span class="text-[10px] px-2.5 py-1 rounded-full bg-pink-500/20 text-pink-300 font-bold uppercase">Branding</span>
+                        </div>
+                        <p class="text-xs text-gray-400 line-clamp-2">Positioning strategy, futuristic logo design, and component library for next-gen machine learning enterprise.</p>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="portfolio-item group pink-glass-card rounded-2xl overflow-hidden cursor-pointer" data-category="3d" onclick="openModal('CyberPulse Render Kit', 'Custom 3D isometric asset library for web platforms.', 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80')">
+                    <div class="relative h-52 sm:h-64 overflow-hidden bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="CyberPulse 3D" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex items-end">
+                            <span class="text-xs font-bold uppercase tracking-wider text-pink-300 flex items-center gap-1">View Project Details <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+                        </div>
+                    </div>
+                    <div class="p-5 sm:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-pink-400 transition-colors">CyberPulse Asset Kit</h3>
+                            <span class="text-[10px] px-2.5 py-1 rounded-full bg-pink-500/20 text-pink-300 font-bold uppercase">3D / Motion</span>
+                        </div>
+                        <p class="text-xs text-gray-400 line-clamp-2">Procedurally modeled 3D assets designed to render blazingly fast on modern web browsers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-24 relative bg-dark-elevated/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-pink-400">The Minds Behind Aryan's Bizhub</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white mt-2">Design Collective</h2>
+                </div>
+                <p class="text-xs text-gray-400 max-w-md mt-4 md:mt-0 leading-relaxed">
+                    An elite unit of visual architects, UI specialists, and 3D animators working synergistically.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Member 1 -->
+                <div class="group pink-glass-card p-6 rounded-2xl text-center flex flex-col items-center">
+                    <div class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full p-1 bg-gradient-to-tr from-pink-500 via-pink-400 to-purple-600 shadow-lg shadow-pink-500/20 group-hover:shadow-pink-500/50 group-hover:scale-105 transition-all duration-500 mb-5">
+                        <div class="w-full h-full rounded-full overflow-hidden bg-gray-900 relative">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Aryan Sharma" class="w-full h-full object-cover filter contrast-125 group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-3">
+                                <div class="flex space-x-2 text-white">
+                                    <a href="#" class="p-1.5 rounded-full pink-glass hover:text-pink-400"><i data-lucide="twitter" class="w-3.5 h-3.5"></i></a>
+                                    <a href="#" class="p-1.5 rounded-full pink-glass hover:text-pink-400"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-white text-base group-hover:text-pink-400 transition-colors">Aryan Sharma</h3>
+                    <p class="text-xs text-pink-400 font-semibold mt-0.5">Founder & Strategic Lead</p>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="group pink-glass-card p-6 rounded-2xl text-center flex flex-col items-center">
+                    <div class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full p-1 bg-gradient-to-tr from-pink-500 via-pink-400 to-purple-600 shadow-lg shadow-pink-500/20 group-hover:shadow-pink-500/50 group-hover:scale-105 transition-all duration-500 mb-5">
+                        <div class="w-full h-full rounded-full overflow-hidden bg-gray-900 relative">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Sora Kapoor" class="w-full h-full object-cover filter contrast-125 group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-3">
+                                <div class="flex space-x-2 text-white">
+                                    <a href="#" class="p-1.5 rounded-full pink-glass hover:text-pink-400"><i data-lucide="dribbble" class="w-3.5 h-3.5"></i></a>
+                                    <a href="#" class="p-1.5 rounded-full pink-glass hover:text-pink-400"><i data-lucide="instagram" class="w-3.5 h-3.5"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-white text-base group-hover:text-pink-400 transition-colors">Sora Kapoor</h3>
+                    <p class="text-xs text-pink-400 font-semibold mt-0.5">Head of UI/UX Systems</p>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="group pink-glass-card p-6 rounded-2xl text-center flex flex-col items-center">
+                    <div class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full p-1 bg-gradient-to-tr from-pink-500 via-pink-400 to-purple-600 shadow-lg shadow-pink-500/20 group-hover:shadow-pink-500/50 group-hover:scale-105 transition-all duration-500 mb-5">
+                        <div class="w-full h-full rounded-full overflow-hidden bg-gray-900 relative">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Leo Vance" class="w-full h-full object-cover filter contrast-125 group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-3">
+                                <div class="flex space-x-2 text-white">
+                                    <a href="#" class="p-1.5 rounded-full pink-glass hover:text-pink-400"><i data-lucide="github" class="w-3.5 h-3.5"></i></a>
+                                    <a href="#" class="p-1.5 rounded-full pink-glass hover:text-pink-400"><i data-lucide="twitter" class="w-3.5 h-3.5"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-white text-base group-hover:text-pink-400 transition-colors">Leo Vance</h3>
+                    <p class="text-xs text-pink-400 font-semibold mt-0.5">3D & WebGL Lead</p>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="group pink-glass-card p-6 rounded-2xl text-center flex flex-col items-center">
+                    <div class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full p-1 bg-gradient-to-tr from-pink-500 via-pink-400 to-purple-600 shadow-lg shadow-pink-500/20 group-hover:shadow-pink-500/50 group-hover:scale-105 transition-all duration-500 mb-5">
+                        <div class="w-full h-full rounded-full overflow-hidden bg-gray-900 relative">
+                            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=600&q=80" alt="Maya Lin" class="w-full h-full object-cover filter contrast-125 group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-3">
+                                <div class="flex space-x-2 text-white">
+                                    <a href="#" class="p-1.5 rounded-full pink-glass hover:text-pink-400"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-white text-base group-hover:text-pink-400 transition-colors">Maya Lin</h3>
+                    <p class="text-xs text-pink-400 font-semibold mt-0.5">Brand Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-pink-400">Initiate Collaboration</span>
+                    <h2 class="font-display text-4xl sm:text-6xl font-extrabold text-white my-4 leading-tight">Ready to elevate your vision?</h2>
+                    <p class="text-gray-300 text-sm mb-8 leading-relaxed">
+                        Partner with the official Aryan's Bizhub design team. We are booking design sprints for upcoming quarters.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl pink-glass flex items-center justify-center text-pink-400 border border-pink-500/30">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-gray-400 block uppercase font-bold tracking-wider">Direct Email</span>
+                                <a href="mailto:design@aryansbizhub.com" class="text-sm font-bold text-white hover:text-pink-400 transition-colors">design@aryansbizhub.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl pink-glass flex items-center justify-center text-pink-400 border border-pink-500/30">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-gray-400 block uppercase font-bold tracking-wider">Bizhub Headquarters</span>
+                                <span class="text-sm font-bold text-white">Innovation Tower, Tech District</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="pink-glass p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-pink-500/30 shadow-2xl relative">
+                    <form id="contactForm" class="space-y-4 sm:space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                            <div>
+                                <label class="block text-[11px] uppercase font-bold text-pink-400 mb-1.5">Name</label>
+                                <input type="text" name="name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-dark-bg/80 border border-pink-500/20 text-white focus:outline-none focus:border-pink-500 text-xs transition-colors min-h-[44px]">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] uppercase font-bold text-pink-400 mb-1.5">Email</label>
+                                <input type="email" name="email" required placeholder="john@enterprise.com" class="w-full px-4 py-3 rounded-xl bg-dark-bg/80 border border-pink-500/20 text-white focus:outline-none focus:border-pink-500 text-xs transition-colors min-h-[44px]">
+                            </div>
+                        </div>
+   
+                        <div>
+                            <label class="block text-[11px] uppercase font-bold text-pink-400 mb-1.5">Project Subject</label>
+                            <input type="text" name="subject" placeholder="UI Redesign & 3D Brand Overhaul" class="w-full px-4 py-3 rounded-xl bg-dark-bg/80 border border-pink-500/20 text-white focus:outline-none focus:border-pink-500 text-xs transition-colors min-h-[44px]">
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] uppercase font-bold text-pink-400 mb-1.5">Project Type</label>
+                            <select name="projectType" required class="w-full px-4 py-3 rounded-xl bg-dark-bg/80 border border-pink-500/20 text-white focus:outline-none focus:border-pink-500 text-xs transition-colors min-h-[44px]">
+                                <option value="" disabled selected class="bg-[#120f1a] text-gray-400">Select Corporate/IT Club Canva Component...</option>
+                                <option value="Club Event Poster & Banner Design" class="bg-[#120f1a] text-white">Event Posters & Flex Banner Templates (Hackathons, Summits, Webinars)</option>
+                                <option value="Member Appreciation & Certificate Design" class="bg-[#120f1a] text-white">Certificates & Recognition Awards (Completion, Appreciation, Winners)</option>
+                                <option value="Corporate Pitch Deck & Presentation Design" class="bg-[#120f1a] text-white">Corporate Pitch Decks & Presentation Slides (PowerPoint / Canva)</option>
+                                <option value="Club Registration, Feedback & Survey Forms" class="bg-[#120f1a] text-white">Registration & Feedback Form Templates (Digital & Printable)</option>
+                                <option value="MUN ID Cards, Name Tags & Badges" class="bg-[#120f1a] text-white">MUN ID Cards, VIP Badges & Lanyards</option>
+                                <option value="Social Media Graphics & Campaign Templates" class="bg-[#120f1a] text-white">Social Media Post & Story Templates (LinkedIn, Instagram, Twitter)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] uppercase font-bold text-pink-400 mb-1.5">Project Brief</label>
+                            <textarea name="message" rows="4" required placeholder="Tell us about your brand vision, target timeline, and goals..." class="w-full px-4 py-3 rounded-xl bg-dark-bg/80 border border-pink-500/20 text-white focus:outline-none focus:border-pink-500 text-xs transition-colors"></textarea>
+                        </div>
+
+                        <button type="submit" id="submitBtn" class="w-full py-3.5 sm:py-4 rounded-xl pink-gradient-bg text-white font-bold text-xs uppercase tracking-widest shadow-lg shadow-pink-500/30 active:scale-95 hover:scale-[1.01] transition-all min-h-[48px] flex items-center justify-center gap-2">
+                            <span id="btnText">Send Design Brief</span>
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+
+                    <!-- Alert messages -->
+                    <div id="formSuccess" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs text-center font-semibold flex items-center justify-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                        <span>✨ Brief submitted! Sent to the Bizhub Team.</span>
+                    </div>
+
+                    <div id="formError" class="hidden mt-4 p-4 rounded-xl bg-red-500/20 border border-red-500/40 text-red-300 text-xs text-center font-semibold">
+                        ❌ Submission error. Please try again or check your connection.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div class="pink-glass-card max-w-2xl w-full rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-pink-500/40 relative my-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full pink-glass text-gray-400 hover:text-white min-w-[36px] min-h-[36px] flex items-center justify-center" aria-label="Close modal">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            
+            <div class="h-48 sm:h-64 rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-6 bg-gray-900">
+                <img id="modalImg" src="" alt="Project Preview" class="w-full h-full object-cover">
+            </div>
+            
+            <h3 id="modalTitle" class="font-display text-xl sm:text-2xl font-extrabold text-white mb-2"></h3>
+            <p id="modalDesc" class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-6"></p>
+
+            <div class="flex flex-col sm:flex-row justify-end gap-2.5 sm:gap-3">
+                <button onclick="closeModal()" class="w-full sm:w-auto px-6 py-2.5 rounded-full pink-glass text-xs font-bold uppercase tracking-wider text-gray-300 min-h-[40px]">Close</button>
+                <a href="#contact" onclick="closeModal()" class="w-full sm:w-auto px-6 py-2.5 rounded-full pink-gradient-bg text-xs font-bold uppercase tracking-wider text-white text-center min-h-[40px] flex items-center justify-center">Inquire Similar Project</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-pink-500/15 py-8 sm:py-10 bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-xs text-gray-400 text-center md:text-left">
+            <div class="flex items-center gap-2 flex-wrap justify-center">
+                <span class="font-display font-bold text-white tracking-wider">ARYAN'S <span class="text-pink-500">BIZHUB</span></span>
+                <span>© 2026 Design Studio. All rights reserved.</span>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 sm:gap-6 uppercase tracking-wider text-[11px] font-semibold">
+                <a href="#about" class="hover:text-pink-400 transition-colors">Vision</a>
+                <a href="#portfolio" class="hover:text-pink-400 transition-colors">Works</a>
+                <a href="#services" class="hover:text-pink-400 transition-colors">Capabilities</a>
+                <a href="#contact" class="hover:text-pink-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Operations -->
+    <script>
+        // Safely execute DOM scripts once document is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Icons safely
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+
+            // 1. Mobile Menu Handling with body scroll lock
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isExpanded = !mobileMenu.classList.contains('hidden');
+                    mobileMenu.classList.toggle('hidden');
+                    document.body.style.overflow = isExpanded ? '' : 'hidden';
+                });
+            }
+
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            const formError = document.getElementById('formError');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwcgOHBbBQoTcis6nE6PqMtArfCycI9rk6IrI9rKa5Z4E_wgwn3XYXztDF6EREiv8I2ww/exec';
+
+            if (contactForm && formSuccess) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    // Visual Loading state
+                    if (submitBtn) submitBtn.disabled = true;
+                    if (btnText) btnText.textContent = "Sending Brief...";
+
+                    if (formSuccess) formSuccess.classList.add('hidden');
+                    if (formError) formError.classList.add('hidden');
+
+                    const formData = new FormData(contactForm);
+
+                    // Submit data to Google Apps Script endpoint using no-cors or fetch
+                    fetch(scriptURL, { 
+                        method: 'POST', 
+                        body: formData 
+                    })
+                    .then(response => {
+                        if (formSuccess) formSuccess.classList.remove('hidden');
+                        contactForm.reset();
+                        if (submitBtn) submitBtn.disabled = false;
+                        if (btnText) btnText.textContent = "Send Design Brief";
+
+                        setTimeout(() => {
+                            if (formSuccess) formSuccess.classList.add('hidden');
+                        }, 5000);
+                    })
+                    .catch(error => {
+                        console.error('Submission Error!', error.message);
+                        if (formError) formError.classList.remove('hidden');
+                        if (submitBtn) submitBtn.disabled = false;
+                        if (btnText) btnText.textContent = "Send Design Brief";
+
+                        setTimeout(() => {
+                            if (formError) formError.classList.add('hidden');
+                        }, 6000);
+                    });
+                });
+            }
+        });
+
+        // 3. Project Modal Handling
+        function openModal(title, desc, imgSrc) {
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDesc = document.getElementById('modalDesc');
+            const modalImg = document.getElementById('modalImg');
+            const projectModal = document.getElementById('projectModal');
+
+            if (modalTitle) modalTitle.textContent = title;
+            if (modalDesc) modalDesc.textContent = desc;
+            if (modalImg) modalImg.src = imgSrc;
+            if (projectModal) {
+                projectModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            const projectModal = document.getElementById('projectModal');
+            if (projectModal) {
+                projectModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close modal on Escape key press
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+</html>
